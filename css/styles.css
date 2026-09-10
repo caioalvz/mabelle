@@ -1,0 +1,279 @@
+/* estilos do site Mabelle */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #faf6ef;
+	color: #4a3f35;
+}
+
+a {
+	text-decoration: none;
+	color: #4a3f35;
+}
+
+/* cabecalho */
+
+header {
+	background-color: #7d5a50;
+	color: #fff;
+	padding: 15px 30px;
+}
+
+.topo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 28px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.logo span {
+	color: #e8c9a3;
+}
+
+a.logo-link {
+	color:white
+}
+
+a.logo-link:visited {
+	color: white;
+}
+
+/* menu */
+
+nav ul {
+	list-style: none;
+	display: flex;
+}
+
+nav > ul > li {
+	position: relative;
+	margin-left: 25px;
+}
+
+nav > ul > li > a {
+	color: #fff;
+	padding: 8px 5px;
+	display: block;
+}
+
+nav > ul > li > a:hover {
+	color: #e8c9a3;
+}
+
+.submenu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: #6b4b42;
+	min-width: 150px;
+	border: 1px solid #593c34;
+	z-index: 10;
+}
+
+nav > ul > li:hover .submenu {
+	display: block;
+}
+
+.submenu li a {
+	color: #fff;
+	padding: 8px 12px;
+	display: block;
+	border-bottom: 1px solid #7d5a50;
+}
+
+.submenu li a:hover {
+	background-color: #7d5a50;
+}
+
+/* banner */
+
+.banner {
+	width: 100%;
+}
+
+.banner img {
+	width: 100%;
+	display: block;
+}
+
+/* conteudo geral */
+
+main {
+	padding: 30px;
+	max-width: 1100px;
+	margin: 0 auto;
+	min-height: 82vh;
+}
+
+h1 {
+	font-family: Georgia, serif;
+	color: #5b4636;
+	margin-bottom: 15px;
+}
+
+h2 {
+	font-family: Georgia, serif;
+	color: #5b4636;
+	margin-top: 30px;
+	margin-bottom: 15px;
+	border-bottom: 2px solid #d8c3a5;
+	padding-bottom: 5px;
+}
+
+p {
+	line-height: 1.6;
+	margin-bottom: 10px;
+}
+
+/* lista de produtos */
+
+.produtos {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.produto {
+	width: 220px;
+	border: 1px solid #d8c3a5;
+	background-color: #fff;
+	padding: 10px;
+	text-align: center;
+}
+
+.produto img {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.produto h3 {
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+.produto .preco {
+	font-weight: bold;
+	color: #7d5a50;
+	margin-bottom: 10px;
+}
+
+.produto button {
+	background-color: #7d5a50;
+	color: #fff;
+	border: none;
+	padding: 8px 12px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.produto button:hover {
+	background-color: #5b4636;
+}
+
+/* formularios */
+
+form {
+	max-width: 400px;
+	margin: 0 auto;
+	background-color: #fff;
+	border: 1px solid #d8c3a5;
+	padding: 25px;
+}
+
+form.contato {
+	max-width: 500px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+input, textarea {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	font-family: Arial, sans-serif;
+}
+
+input[type="submit"], .botao {
+	background-color: #7d5a50;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	width: auto;
+	padding: 10px 20px;
+}
+
+input[type="submit"]:hover, .botao:hover {
+	background-color: #5b4636;
+}
+
+/* dashboard */
+
+.dashboard-caixa {
+	background-color: #fff;
+	border: 1px solid #d8c3a5;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.dashboard-menu {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 20px;
+}
+
+.dashboard-menu a {
+	background-color: #d8c3a5;
+	padding: 10px 15px;
+	color: #4a3f35;
+}
+
+.dashboard-menu a:hover {
+	background-color: #c9ac82;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: #fff;
+}
+
+table, th, td {
+	border: 1px solid #d8c3a5;
+}
+
+th, td {
+	padding: 8px;
+	text-align: left;
+}
+
+th {
+	background-color: #efe2cd;
+}
+
+/* rodape */
+
+footer {
+	background-color: #5b4636;
+	color: #fff;
+	text-align: center;
+	padding: 15px;
+	margin-top: 40px;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Mabelle - Dashboard</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+	<header>
+		<div class="topo">
+			<div class="logo"><a class="logo-link" href="index.html">Ma<span>belle</span></a></div>
+			<nav>
+				<ul>
+					<li><a href="index.html">Início</a></li>
+					<li><a href="produto.html">Produtos</a>
+						<ul class="submenu">
+							<li><a href="produto.html#cama">Cama</a></li>
+							<li><a href="produto.html#mesa">Mesa</a></li>
+							<li><a href="produto.html#banho">Banho</a></li>
+						</ul>
+					</li>
+					<li><a href="sobre.html">Sobre</a></li>
+					<li><a href="contato.html">Contato</a></li>
+					<li><a href="login.html">Sair</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<h1>Painel do Usuario</h1>
+		<p>Bem vindo de volta! Aqui voce pode ver um resumo da loja.</p>
+
+		<div class="dashboard-menu">
+			<a href="produto.html">Produtos</a>
+			<a href="#pedidos">Pedidos</a>
+			<a href="#dados">Meus Dados</a>
+		</div>
+
+		<div class="dashboard-caixa">
+			<h2 style="margin-top:0;">Resumo</h2>
+			<p>Produtos cadastrados: 10</p>
+			<p>Categorias: Cama, Mesa e Banho</p>
+			<p>Pedidos recentes: 3</p>
+		</div>
+
+		<h2 id="pedidos">Ultimos Pedidos</h2>
+		<table>
+			<tr>
+				<th>Pedido</th>
+				<th>Produto</th>
+				<th>Status</th>
+			</tr>
+			<tr>
+				<td>001</td>
+				<td>Jogo de Lencol Casal</td>
+				<td>Enviado</td>
+			</tr>
+			<tr>
+				<td>002</td>
+				<td>Toalha de Banho</td>
+				<td>Em preparacao</td>
+			</tr>
+			<tr>
+				<td>003</td>
+				<td>Toalha de Mesa</td>
+				<td>Entregue</td>
+			</tr>
+		</table>
+
+		<h2 id="dados">Meus Dados</h2>
+		<div class="dashboard-caixa">
+			<p>Nome: Cliente Mabelle</p>
+			<p>Email: cliente@email.com</p>
+			<p>Cidade: Sao Paulo - SP</p>
+		</div>
+
+	</main>
+
+	<footer>
+		<p>Mabelle Enxovais - Todos os direitos reservados <span id="ano"></span></p>
+		<p>Desenvolvido por Spider-Lag 🕷</p>
+	</footer>
+
+	<script src="js/script.js"></script>
+</body>
+</html>
