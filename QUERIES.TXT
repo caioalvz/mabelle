@@ -1,0 +1,6 @@
+SELECT * FROM usuarios
+WHERE data_nascimento <= '2010-01-01'
+ORDER_BY nome ASC
+
+SELECT * FROM produtos
+WHERE 

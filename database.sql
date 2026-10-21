@@ -57,6 +57,15 @@ CREATE TABLE cupons (
     ativo BOOLEAN NOT NULL DEFAULT TRUE
 );
     
+CREATE TABLE fornecedores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cnpj VARCHAR(11) UNIQUE NOT NULL,
+    razao_social VARCHAR(180) UNIQUE NOT NULL, 
+    nome_fantasia VARCHAR(180),
+    endereco TEXT,
+    telefone VARCHAR(20)
+)
+
 INSERT INTO categorias (nome, descricao) VALUES
 ('Cama', 'Jogos de lençol, edredons, fronhas, cobertores e colchas.'),
 ('Mesa', 'Toalhas de mesa, jogos americanos, trilhos e guardanapos.'),
