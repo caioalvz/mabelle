@@ -1,0 +1,37 @@
+Início
+
+  Home (Boas-vindas + 4 produtos em destaque)
+
+    Menu de Navegação
+
+      Produtos (Cama / Mesa / Banho)
+
+        Ação: Botão "Comprar" (Alerta: Produto adicionado ao carrinho - permanece na página)
+
+
+
+      Sobre (Missão / Visão / Valores)
+
+
+
+      Contato (Nome / E-mail / Mensagem)
+
+
+
+      Dashboard (Área do Usuário)
+
+        Decisão: Logado?
+
+          Se Não:
+
+            Login (Usuário / Senha) -> Enviar -> Painel do Usuário
+
+          Se Sim:
+
+            Painel do Usuário
+
+              - Meus dados
+
+              - Últimos pedidos
+
+              - Resumo
