@@ -20,7 +20,7 @@
 		<h1>Login</h1>
 		<p>Entre com seu usuário e senha para acessar o painel.</p>
 
-		<form action="dashboard.html" method="get">
+		<form action="dashboard.php" method="get">
 			<label for="usuario">Usuário</label>
 			<input type="text" id="usuario" name="usuario">
 

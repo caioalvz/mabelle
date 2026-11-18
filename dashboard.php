@@ -9,20 +9,20 @@
 
 	<header>
 		<div class="topo">
-			<div class="logo"><a class="logo-link" href="index.html">Ma<span>belle</span></a></div>
+			<div class="logo"><a class="logo-link" href="index.php">Ma<span>belle</span></a></div>
 			<nav>
 				<ul>
-					<li><a href="index.html">Início</a></li>
-					<li><a href="produto.html">Produtos</a>
+					<li><a href="index.php">Início</a></li>
+					<li><a href="produto.php">Produtos</a>
 						<ul class="submenu">
-							<li><a href="produto.html#cama">Cama</a></li>
-							<li><a href="produto.html#mesa">Mesa</a></li>
-							<li><a href="produto.html#banho">Banho</a></li>
+							<li><a href="produto.php#cama">Cama</a></li>
+							<li><a href="produto.php#mesa">Mesa</a></li>
+							<li><a href="produto.php#banho">Banho</a></li>
 						</ul>
 					</li>
-					<li><a href="sobre.html">Sobre</a></li>
-					<li><a href="contato.html">Contato</a></li>
-					<li><a href="login.html">Sair</a></li>
+					<li><a href="sobre.php">Sobre</a></li>
+					<li><a href="contato.php">Contato</a></li>
+					<li><a href="login.php">Sair</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -33,7 +33,7 @@
 		<p>Bem-vindo de volta! Aqui você pode ver um resumo da loja.</p>
 
 		<div class="dashboard-menu">
-			<a href="produto.html">Produtos</a>
+			<a href="produto.php">Produtos</a>
 			<a href="#pedidos">Pedidos</a>
 			<a href="#dados">Meus Dados</a>
 		</div>

@@ -9,20 +9,20 @@
 
 	<header>
 		<div class="topo">
-			<div class="logo"><a class="logo-link" href="index.html">Ma<span>belle</span></a></div>
+			<div class="logo"><a class="logo-link" href="index.php">Ma<span>belle</span></a></div>
 			<nav>
 				<ul>
-					<li><a href="index.html">Início</a></li>
-					<li><a href="produto.html">Produtos</a>
+					<li><a href="index.php">Início</a></li>
+					<li><a href="produto.php">Produtos</a>
 						<ul class="submenu">
-							<li><a href="produto.html#cama">Cama</a></li>
-							<li><a href="produto.html#mesa">Mesa</a></li>
-							<li><a href="produto.html#banho">Banho</a></li>
+							<li><a href="produto.php#cama">Cama</a></li>
+							<li><a href="produto.php#mesa">Mesa</a></li>
+							<li><a href="produto.php#banho">Banho</a></li>
 						</ul>
 					</li>
-					<li><a href="sobre.html">Sobre</a></li>
-					<li><a href="contato.html">Contato</a></li>
-					<li><a href="Dashboard.html">Dashboard</a></li>
+					<li><a href="sobre.php">Sobre</a></li>
+					<li><a href="contato.php">Contato</a></li>
+					<li><a href="dashboard.php">Dashboard</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -69,7 +69,7 @@
 
 		</div>
 
-		<p><a href="produto.html" class="botao" style="display:inline-block; margin-top:20px; color:#fff; padding:10px 20px;">Ver todos os produtos</a></p>
+		<p><a href="produto.php" class="botao" style="display:inline-block; margin-top:20px; color:#fff; padding:10px 20px;">Ver todos os produtos</a></p>
 	</main>
 
 	<footer>

@@ -26,6 +26,6 @@ mabelle/
 │   └── 📁 img/            # Imagens e mídias do projeto
 ├── 📁 components/         # Componentes reutilizáveis (se aplicável)
 ├── 📁 includes/           # Partes reutilizáveis de código (Header, Footer, etc.)
-├── 📄 index.html          # Página principal da aplicação
+├── 📄 index.php           # Página principal da aplicação
 ├── 📄 .gitignore          # Arquivos e pastas ignorados pelo Git
 └── 📄 README.md           # Documentação do projeto

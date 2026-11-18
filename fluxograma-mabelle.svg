@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" width="1000" height="780" font-family="Arial, Helvetica, sans-serif" font-size="14">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="780" fill="#ffffff"/>
+  <text x="500" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">Fluxograma do site Mabelle</text>
+
+  <!-- setas -->
+  <g stroke="#444" stroke-width="2" fill="none" marker-end="url(#a)">
+    <line x1="500" y1="90" x2="500" y2="115"/>
+    <line x1="500" y1="165" x2="500" y2="200"/>
+    <path d="M430,250 L150,250 L150,300"/>
+    <path d="M470,265 L370,265 L370,300"/>
+    <path d="M530,265 L590,265 L590,300"/>
+    <path d="M570,250 L850,250 L850,300"/>
+    <line x1="150" y1="360" x2="150" y2="420"/>
+    <line x1="850" y1="360" x2="850" y2="400"/>
+    <path d="M790,455 L650,455 L650,520"/>
+    <line x1="850" y1="510" x2="850" y2="650"/>
+    <path d="M650,590 L650,700 L740,700"/>
+    <path d="M150,490 C60,490 60,330 100,330" stroke-dasharray="6 5"/>
+  </g>
+
+  <!-- Início -->
+  <ellipse cx="500" cy="65" rx="70" ry="25" fill="#fde2e4" stroke="#c9184a" stroke-width="2"/>
+  <text x="500" y="70" text-anchor="middle" font-weight="bold">INÍCIO</text>
+
+  <!-- Home -->
+  <rect x="380" y="115" width="240" height="50" rx="6" fill="#ffe5ec" stroke="#c9184a" stroke-width="2"/>
+  <text x="500" y="137" text-anchor="middle" font-weight="bold">Home</text>
+  <text x="500" y="154" text-anchor="middle" font-size="12">Boas-vindas + 4 produtos em destaque</text>
+
+  <!-- Menu -->
+  <polygon points="500,200 570,250 500,300 430,250" fill="#fff3b0" stroke="#b08900" stroke-width="2"/>
+  <text x="500" y="247" text-anchor="middle" font-size="12" font-weight="bold">Menu de</text>
+  <text x="500" y="263" text-anchor="middle" font-size="12" font-weight="bold">navegação</text>
+
+  <!-- Páginas públicas -->
+  <rect x="60" y="300" width="180" height="60" rx="6" fill="#ffe5ec" stroke="#c9184a" stroke-width="2"/>
+  <text x="150" y="325" text-anchor="middle" font-weight="bold">Produtos</text>
+  <text x="150" y="345" text-anchor="middle" font-size="12">Banho · Cama · Mesa</text>
+
+  <rect x="280" y="300" width="180" height="60" rx="6" fill="#ffe5ec" stroke="#c9184a" stroke-width="2"/>
+  <text x="370" y="325" text-anchor="middle" font-weight="bold">Sobre</text>
+  <text x="370" y="345" text-anchor="middle" font-size="12">Missão e Valores</text>
+
+  <rect x="500" y="300" width="180" height="60" rx="6" fill="#ffe5ec" stroke="#c9184a" stroke-width="2"/>
+  <text x="590" y="325" text-anchor="middle" font-weight="bold">Contato</text>
+  <text x="590" y="345" text-anchor="middle" font-size="12">Nome · Email · Mensagem</text>
+
+  <!-- Dashboard -->
+  <rect x="760" y="300" width="180" height="60" rx="6" fill="#d8e9ff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="850" y="325" text-anchor="middle" font-weight="bold">Dashboard</text>
+  <text x="850" y="345" text-anchor="middle" font-size="12">Área do usuário</text>
+
+  <!-- Comprar -->
+  <rect x="60" y="420" width="180" height="70" rx="22" fill="#e1f5e1" stroke="#2e7d32" stroke-width="2"/>
+  <text x="150" y="445" text-anchor="middle" font-weight="bold">Botão "Comprar"</text>
+  <text x="150" y="463" text-anchor="middle" font-size="12">Alerta: produto adicionado</text>
+  <text x="150" y="479" text-anchor="middle" font-size="12">ao carrinho (volta à página)</text>
+
+  <!-- Logado? -->
+  <polygon points="850,400 910,455 850,510 790,455" fill="#fff3b0" stroke="#b08900" stroke-width="2"/>
+  <text x="850" y="460" text-anchor="middle" font-size="13" font-weight="bold">Logado?</text>
+  <text x="755" y="445" text-anchor="middle" font-size="12" font-weight="bold">Não</text>
+  <text x="870" y="580" font-size="12" font-weight="bold">Sim</text>
+
+  <!-- Login -->
+  <rect x="560" y="520" width="180" height="70" rx="6" fill="#d8e9ff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="650" y="548" text-anchor="middle" font-weight="bold">Login</text>
+  <text x="650" y="567" text-anchor="middle" font-size="12">Usuário + Senha</text>
+  <text x="650" y="582" text-anchor="middle" font-size="12">(Enviar)</text>
+
+  <!-- Painel -->
+  <rect x="740" y="650" width="220" height="100" rx="6" fill="#d8e9ff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="850" y="678" text-anchor="middle" font-weight="bold">Painel do Usuário</text>
+  <text x="850" y="700" text-anchor="middle" font-size="12">• Meus Dados</text>
+  <text x="850" y="718" text-anchor="middle" font-size="12">• Últimos Pedidos</text>
+  <text x="850" y="736" text-anchor="middle" font-size="12">• Resumo</text>
+
+  <!-- Legenda -->
+  <rect x="40" y="620" width="16" height="16" fill="#ffe5ec" stroke="#c9184a"/><text x="64" y="633" font-size="12">Páginas públicas</text>
+  <rect x="40" y="644" width="16" height="16" fill="#d8e9ff" stroke="#1d4ed8"/><text x="64" y="657" font-size="12">Área do usuário</text>
+  <rect x="40" y="668" width="16" height="16" fill="#fff3b0" stroke="#b08900"/><text x="64" y="681" font-size="12">Decisão / menu</text>
+  <rect x="40" y="692" width="16" height="16" fill="#e1f5e1" stroke="#2e7d32"/><text x="64" y="705" font-size="12">Ação</text>
+</svg>
