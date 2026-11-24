@@ -47,7 +47,7 @@ Cadastro, listagem, busca e exclusão lógica de usuários em PHP e MySQL. Esta 
 | 04 | Selects de setor e perfil | Concluído |
 | 05 | Validação do formulário | Concluído |
 | 06 | Gravação do usuário | Concluído |
-| 07 | Listagem e busca | Pendente |
+| 07 | Listagem e busca | Concluído |
 | 08 | JOIN na listagem | Pendente |
 | 09 | Confirmação de exclusão | Pendente |
 | 10 | Exclusão segura | Pendente |
@@ -58,6 +58,7 @@ Cadastro, listagem, busca e exclusão lógica de usuários em PHP e MySQL. Esta 
 - **Ponto 04 – Selects de setor e perfil:** O formulário `usuario_novo.php` carrega as opções de setor e perfil direto do banco.
 - **Ponto 05 – Validação do formulário:** Conferência dos campos no navegador (`js/usuarios.js`) e no servidor (PHP), com token CSRF.
 - **Ponto 06 – Gravação do usuário:** INSERT preparado, com mensagens próprias para e-mail duplicado e setor/perfil inválido, e registro na auditoria.
+- **Ponto 07 – Listagem e busca:** `usuarios.php` lista os usuários ativos e permite buscar por nome ou e-mail (`?q=`).
 
 ### Banco de dados
 
@@ -89,3 +90,7 @@ Os dados do formulário passam por duas conferências. No navegador, `js/usuario
 ### Gravação
 
 Os dados são gravados com `INSERT` preparado (`?`), de modo que o valor digitado nunca vira parte do comando SQL. O erro 1062 do MySQL (e-mail duplicado) e o erro 1452 (setor ou perfil inexistente) viram mensagens próprias; qualquer outro erro mostra uma mensagem genérica. Cada tentativa, com sucesso ou falha, é registrada em `auditoria_usuarios`. Após gravar, a página redireciona para a listagem com um aviso de sucesso.
+
+### Listagem e busca
+
+`usuarios.php` exibe os usuários com `status = 'Ativo'`, ordenados por nome. O campo de busca filtra por nome ou e-mail com `LIKE`; os caracteres `%`, `_` e `!` digitados são tratados como texto comum. Sem resultados, a página mostra "Nenhum usuário encontrado.".
