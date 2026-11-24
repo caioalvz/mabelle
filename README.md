@@ -127,3 +127,7 @@ Cada linha da lista tem o botão Excluir (`type="button"`), que abre uma janela 
 ### Pacote
 
 `git archive --format=zip -o mabelle-sprint01.zip HEAD` gera um ZIP apenas com os arquivos versionados, sem o `php/config.local.php`.
+
+### Organização dos scripts SQL
+
+Os dois scripts SQL do projeto ficam na pasta `database/`: `database.sql` (banco `loja_enxoval` e tabelas originais da loja) e `sprint01_usuarios.sql` (módulo de usuários). O `database.sql` ficava na raiz do projeto e foi movido para `database/` ao final da sprint, sem alteração de conteúdo.
