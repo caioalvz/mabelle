@@ -45,7 +45,7 @@ Cadastro, listagem, busca e exclusão lógica de usuários em PHP e MySQL. Esta 
 | 02 | Estrutura MySQL | Concluído |
 | 03 | Conexão PDO | Concluído |
 | 04 | Selects de setor e perfil | Concluído |
-| 05 | Validação do formulário | Pendente |
+| 05 | Validação do formulário | Concluído |
 | 06 | Gravação do usuário | Pendente |
 | 07 | Listagem e busca | Pendente |
 | 08 | JOIN na listagem | Pendente |
@@ -56,6 +56,7 @@ Cadastro, listagem, busca e exclusão lógica de usuários em PHP e MySQL. Esta 
 - **Ponto 02 – Estrutura MySQL:** Script `database/sprint01_usuarios.sql` com as tabelas `setores`, `perfis`, `usuarios` e `auditoria_usuarios`, chaves estrangeiras e dados fictícios.
 - **Ponto 03 – Conexão PDO:** `php/conexao_pdo.php` cria a variável `$pdo`; falhas de conexão são tratadas sem expor detalhes ao visitante.
 - **Ponto 04 – Selects de setor e perfil:** O formulário `usuario_novo.php` carrega as opções de setor e perfil direto do banco.
+- **Ponto 05 – Validação do formulário:** Conferência dos campos no navegador (`js/usuarios.js`) e no servidor (PHP), com token CSRF.
 
 ### Banco de dados
 
@@ -79,3 +80,7 @@ Requisitos: PHP 8.1+ com `pdo_mysql` e MySQL 8 ou MariaDB 10.4+ (XAMPP).
 ### Cadastro de usuário
 
 `usuario_novo.php` monta os campos Setor e Perfil a partir das tabelas `setores` e `perfis`, exibindo somente os registros ativos. Os textos vindos do banco são escapados com `htmlspecialchars` antes de aparecer na página.
+
+### Validação
+
+Os dados do formulário passam por duas conferências. No navegador, `js/usuarios.js` verifica nome, e-mail, setor e perfil e mostra a mensagem abaixo de cada campo. No servidor, o PHP repete as regras (nome de 3 a 150 caracteres, e-mail válido, setor e perfil existentes) e confere um token CSRF guardado na sessão. A conferência do navegador melhora o uso; a do servidor é a que vale.
