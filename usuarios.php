@@ -20,12 +20,18 @@ $texto = str_replace(["!", "%", "_"], ["!!", "!%", "!_"], $busca);
 $parametro = "%" . $texto . "%";
 
 // Busca os usuários ativos. Usuários com status 'Baixa' não aparecem.
+// JOIN = juntar tabelas. Cada ON diz como ligar:
+//   usuarios.setor_id  ->  setores.id   (traz o NOME do setor)
+//   usuarios.perfil_id ->  perfis.id    (traz o NOME do perfil)
+// u, s e p são apelidos para escrever menos.
 $comando = $pdo->prepare(
-    "SELECT id, nome, email, setor_id, perfil_id
-     FROM usuarios
-     WHERE status = 'Ativo'
-       AND (nome LIKE ? ESCAPE '!' OR email LIKE ? ESCAPE '!')
-     ORDER BY nome"
+    "SELECT u.id, u.nome, u.email, s.nome AS setor, p.nome AS perfil
+     FROM usuarios u
+     INNER JOIN setores s ON s.id = u.setor_id
+     INNER JOIN perfis p ON p.id = u.perfil_id
+     WHERE u.status = 'Ativo'
+       AND (u.nome LIKE ? ESCAPE '!' OR u.email LIKE ? ESCAPE '!')
+     ORDER BY u.nome"
 );
 $comando->execute([$parametro, $parametro]);
 $usuarios = $comando->fetchAll();
@@ -75,15 +81,15 @@ $usuarios = $comando->fetchAll();
 				<tr>
 					<th>Nome</th>
 					<th>E-mail</th>
-					<th>Setor (id)</th>
-					<th>Perfil (id)</th>
+					<th>Setor</th>
+					<th>Perfil</th>
 				</tr>
 				<?php foreach ($usuarios as $usuario) { ?>
 				<tr>
 					<td><?php echo htmlspecialchars($usuario["nome"]); ?></td>
 					<td><?php echo htmlspecialchars($usuario["email"]); ?></td>
-					<td><?php echo $usuario["setor_id"]; ?></td>
-					<td><?php echo $usuario["perfil_id"]; ?></td>
+					<td><?php echo htmlspecialchars($usuario["setor"]); ?></td>
+					<td><?php echo htmlspecialchars($usuario["perfil"]); ?></td>
 				</tr>
 				<?php } ?>
 			</table>
