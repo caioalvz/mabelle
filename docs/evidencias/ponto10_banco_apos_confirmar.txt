@@ -1,0 +1,18 @@
+Registro de execucao - banco de homologacao com dados ficticios (24/11/2026)
+Fluxo: Excluir (Ana Teste) -> Cancelar -> Excluir -> Confirmar
+
+-- Antes de Confirmar (apos Cancelar): auditoria_usuarios tinha 0 linhas e os 3 usuarios estavam Ativo.
+
+-- Depois de Confirmar:
++----+-------------+--------+---------------------+
+| id | nome        | status | baixado_em          |
++----+-------------+--------+---------------------+
+|  1 | Ana Teste   | Baixa  | 2026-11-24 11:27:13 |
+|  2 | Bruno Teste | Ativo  | NULL                |
+|  3 | Carla Teste | Ativo  | NULL                |
++----+-------------+--------+---------------------+
++-----------------+-------+---------+-----------+
+| usuario_alvo_id | acao  | autor   | resultado |
++-----------------+-------+---------+-----------+
+|               1 | baixa | sistema | sucesso   |
++-----------------+-------+---------+-----------+

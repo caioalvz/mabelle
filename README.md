@@ -50,7 +50,7 @@ Cadastro, listagem, busca e exclusão lógica de usuários em PHP e MySQL. Esta 
 | 07 | Listagem e busca | Concluído |
 | 08 | JOIN na listagem | Concluído |
 | 09 | Confirmação de exclusão | Concluído |
-| 10 | Exclusão segura | Pendente |
+| 10 | Exclusão segura | Concluído |
 
 - **Ponto 01 – Diagnóstico do módulo:** Levantamento do que já existia no projeto e plano de alteração (`docs/DIAGNOSTICO.md`).
 - **Ponto 02 – Estrutura MySQL:** Script `database/sprint01_usuarios.sql` com as tabelas `setores`, `perfis`, `usuarios` e `auditoria_usuarios`, chaves estrangeiras e dados fictícios.
@@ -61,6 +61,7 @@ Cadastro, listagem, busca e exclusão lógica de usuários em PHP e MySQL. Esta 
 - **Ponto 07 – Listagem e busca:** `usuarios.php` lista os usuários ativos e permite buscar por nome ou e-mail (`?q=`).
 - **Ponto 08 – JOIN na listagem:** A listagem junta `usuarios`, `setores` e `perfis` para exibir os nomes de setor e perfil.
 - **Ponto 09 – Confirmação de exclusão:** Janela de confirmação com os botões Cancelar e Confirmar, aberta pela coluna de ações.
+- **Ponto 10 – Exclusão segura:** `usuario_excluir.php` aceita apenas POST com token CSRF, marca o usuário como `Baixa` dentro de uma transação e registra a ação na auditoria. Inclui testes automáticos e o relatório da sprint.
 
 ### Banco de dados
 
@@ -104,3 +105,25 @@ A listagem usa `INNER JOIN` com as condições `usuarios.setor_id = setores.id` 
 ### Confirmação de exclusão
 
 Cada linha da lista tem o botão Excluir (`type="button"`), que abre uma janela de confirmação com nome, e-mail e ID do usuário. O botão Cancelar e a tecla Esc fecham a janela sem enviar nada; somente Confirmar envia o formulário. A janela usa `role="dialog"` e `aria-modal` para leitores de tela.
+
+### Exclusão
+
+`usuario_excluir.php` aceita somente POST (outros métodos recebem 405), exige o token CSRF (403 se inválido) e valida o ID (400 se inválido). A baixa é lógica: o `UPDATE` troca `status` para `Baixa` e preenche `baixado_em`, com a condição `AND status = 'Ativo'` para que uma segunda tentativa não gere nova baixa. A baixa e o registro de auditoria ficam na mesma transação (`beginTransaction`, `commit`, `rollBack`).
+
+### Rotas e arquivos
+
+| Rota | Função |
+|---|---|
+| `usuarios.php` | Lista de usuários ativos (SELECT + JOIN), busca e janela de confirmação |
+| `usuario_novo.php` | Formulário, validação (navegador e PHP) e INSERT |
+| `usuario_excluir.php` | Baixa lógica, apenas POST com token CSRF |
+| `php/conexao_pdo.php` | Conexão PDO (variável `$pdo`) |
+| `js/usuarios.js` | Validação no navegador e janela de exclusão |
+
+### Testes
+
+`tests/test_fluxo.php` executa os testes T01 a T12 contra um banco temporário (`mabelle_teste`), criado a partir do script SQL e apagado ao final. O MySQL precisa estar em execução. Comando: `php tests/test_fluxo.php`. O relatório da sprint está em `docs/RELATORIO_SPRINT01.md`.
+
+### Pacote
+
+`git archive --format=zip -o mabelle-sprint01.zip HEAD` gera um ZIP apenas com os arquivos versionados, sem o `php/config.local.php`.

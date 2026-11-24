@@ -1,0 +1,36 @@
+Saida de: php tests/test_fluxo.php (banco temporario mabelle_teste, dados ficticios)
+Executado em 24/11/2026
+
+[OK]    T01 cadastro válido grava um único registro e redireciona
+[OK]    T01 e-mail salvo em minúsculas e status Ativo
+[OK]    T01 auditoria de cadastro registrada
+[OK]    T02 e-mail inválido e nome vazio recusados com mensagem
+[OK]    T02 banco não recebeu registro
+[OK]    T03 e-mail repetido avisa e não duplica
+[OK]    T03 mensagem não mostra SQL
+[OK]    T04 setor 999 bloqueado no servidor
+[OK]    T04 perfil não numérico bloqueado
+[OK]    formulário sem token válido é recusado (403)
+[OK]    T05 busca por nome existente
+[OK]    T05 busca por e-mail
+[OK]    T05 busca inexistente mostra mensagem
+[OK]    T06 JOIN mostra setor e perfil corretos
+[OK]    T07 JOIN mostra o novo nome do setor
+[OK]    T12 injeção na busca não lista todos
+[OK]    T12 curinga % tratado como texto
+[OK]    T12 nome com HTML/SQL é salvo como texto e escapado
+[OK]    T08 sem confirmar, Ana continua Ativa
+[OK]    cada linha da lista traz o botão Excluir com o id do usuário
+[OK]    modal traz o botão Cancelar e o botão Confirmar
+[OK]    T10 GET recusado (405)
+[OK]    T10 POST sem CSRF recusado (403)
+[OK]    T10 id inválido recusado (400)
+[OK]    T10 dados preservados
+[OK]    T09 baixa: status Baixa e baixado_em preenchido
+[OK]    T09 usuário sai da lista de ativos
+[OK]    T09 auditoria registra a baixa
+[OK]    T11 repetição mostra aviso controlado
+[OK]    T11 não houve segunda baixa
+[OK]    banco indisponível: resposta 503 sem detalhes técnicos
+
+Resumo: 31 ok, 0 falhas

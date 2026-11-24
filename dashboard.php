@@ -34,6 +34,7 @@
 
 		<div class="dashboard-menu">
 			<a href="produto.php">Produtos</a>
+			<a href="usuarios.php">Usuários</a>
 			<a href="#pedidos">Pedidos</a>
 			<a href="#dados">Meus Dados</a>
 		</div>
