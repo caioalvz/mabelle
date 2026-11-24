@@ -295,3 +295,24 @@ select {
 
 .aviso.sucesso { border-color: #5a8a5a; }
 .aviso.erro { border-color: #a33; color: #a33; }
+
+/* Pergunta de confirmação (modal) */
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 20;
+}
+
+.modal[hidden] { display: none; }
+
+.modal-caixa { max-width: 460px; }
+.modal-caixa h2 { margin-bottom: 12px; }
+.modal-caixa p { margin-bottom: 15px; }
+.modal-caixa .botao { margin-right: 10px; }

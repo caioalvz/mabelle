@@ -49,7 +49,7 @@ Cadastro, listagem, busca e exclusão lógica de usuários em PHP e MySQL. Esta 
 | 06 | Gravação do usuário | Concluído |
 | 07 | Listagem e busca | Concluído |
 | 08 | JOIN na listagem | Concluído |
-| 09 | Confirmação de exclusão | Pendente |
+| 09 | Confirmação de exclusão | Concluído |
 | 10 | Exclusão segura | Pendente |
 
 - **Ponto 01 – Diagnóstico do módulo:** Levantamento do que já existia no projeto e plano de alteração (`docs/DIAGNOSTICO.md`).
@@ -60,6 +60,7 @@ Cadastro, listagem, busca e exclusão lógica de usuários em PHP e MySQL. Esta 
 - **Ponto 06 – Gravação do usuário:** INSERT preparado, com mensagens próprias para e-mail duplicado e setor/perfil inválido, e registro na auditoria.
 - **Ponto 07 – Listagem e busca:** `usuarios.php` lista os usuários ativos e permite buscar por nome ou e-mail (`?q=`).
 - **Ponto 08 – JOIN na listagem:** A listagem junta `usuarios`, `setores` e `perfis` para exibir os nomes de setor e perfil.
+- **Ponto 09 – Confirmação de exclusão:** Janela de confirmação com os botões Cancelar e Confirmar, aberta pela coluna de ações.
 
 ### Banco de dados
 
@@ -99,3 +100,7 @@ Os dados são gravados com `INSERT` preparado (`?`), de modo que o valor digitad
 ### JOIN
 
 A listagem usa `INNER JOIN` com as condições `usuarios.setor_id = setores.id` e `usuarios.perfil_id = perfis.id`. Guardar o nome do setor ou do perfil dentro de `usuarios` duplicaria a informação: renomear um setor deixaria usuários com valores divergentes. Com a chave estrangeira, o nome existe em um único lugar.
+
+### Confirmação de exclusão
+
+Cada linha da lista tem o botão Excluir (`type="button"`), que abre uma janela de confirmação com nome, e-mail e ID do usuário. O botão Cancelar e a tecla Esc fecham a janela sem enviar nada; somente Confirmar envia o formulário. A janela usa `role="dialog"` e `aria-modal` para leitores de tela.

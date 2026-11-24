@@ -55,3 +55,42 @@ if (formulario != null) {
 		}
 	});
 }
+
+// ---------- Pergunta de confirmação antes de excluir (Ponto 09) ----------
+
+var modal = document.getElementById("modal-excluir");
+
+if (modal != null) {
+	var botoesExcluir = document.querySelectorAll(".btn-excluir");
+
+	// Abre a pergunta e preenche com os dados do usuário clicado
+	function abrirModal(botao) {
+		document.getElementById("modal-id").value = botao.getAttribute("data-id");
+		document.getElementById("modal-id-texto").textContent = botao.getAttribute("data-id");
+		document.getElementById("modal-nome").textContent = botao.getAttribute("data-nome");
+		document.getElementById("modal-email").textContent = botao.getAttribute("data-email");
+		modal.hidden = false;
+		document.getElementById("modal-cancelar").focus();
+	}
+
+	// Fecha a pergunta sem enviar nada
+	function fecharModal() {
+		modal.hidden = true;
+		document.getElementById("modal-id").value = "";
+	}
+
+	for (var i = 0; i < botoesExcluir.length; i++) {
+		botoesExcluir[i].addEventListener("click", function () {
+			abrirModal(this);
+		});
+	}
+
+	document.getElementById("modal-cancelar").addEventListener("click", fecharModal);
+
+	// Tecla Esc também cancela
+	document.addEventListener("keydown", function (evento) {
+		if (evento.key == "Escape" && !modal.hidden) {
+			fecharModal();
+		}
+	});
+}

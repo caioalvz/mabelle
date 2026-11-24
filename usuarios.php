@@ -2,11 +2,21 @@
 session_start();
 include("php/conexao_pdo.php");
 
+// Token secreto da sessão (vai escondido no formulário de exclusão)
+if (!isset($_SESSION["csrf"])) {
+    $_SESSION["csrf"] = bin2hex(random_bytes(32));
+}
+
 // Avisos guardados por outras páginas (ex.: "Usuário cadastrado com sucesso")
 $aviso_ok = "";
+$aviso_erro = "";
 if (isset($_SESSION["flash"])) {
     $aviso_ok = $_SESSION["flash"];
     unset($_SESSION["flash"]);          // mostra só uma vez
+}
+if (isset($_SESSION["flash_erro"])) {
+    $aviso_erro = $_SESSION["flash_erro"];
+    unset($_SESSION["flash_erro"]);
 }
 
 // Texto digitado na busca (se não digitou nada, fica vazio)
@@ -65,6 +75,9 @@ $usuarios = $comando->fetchAll();
 		<?php if ($aviso_ok != "") { ?>
 			<div class="aviso sucesso"><?php echo htmlspecialchars($aviso_ok); ?></div>
 		<?php } ?>
+		<?php if ($aviso_erro != "") { ?>
+			<div class="aviso erro"><?php echo htmlspecialchars($aviso_erro); ?></div>
+		<?php } ?>
 
 		<form method="get" action="usuarios.php">
 			<label for="q">Buscar por nome ou e-mail</label>
@@ -83,6 +96,7 @@ $usuarios = $comando->fetchAll();
 					<th>E-mail</th>
 					<th>Setor</th>
 					<th>Perfil</th>
+					<th>Ações</th>
 				</tr>
 				<?php foreach ($usuarios as $usuario) { ?>
 				<tr>
@@ -90,10 +104,29 @@ $usuarios = $comando->fetchAll();
 					<td><?php echo htmlspecialchars($usuario["email"]); ?></td>
 					<td><?php echo htmlspecialchars($usuario["setor"]); ?></td>
 					<td><?php echo htmlspecialchars($usuario["perfil"]); ?></td>
+					<td>
+						<!-- type="button": só abre a pergunta, não envia nada -->
+						<button type="button" class="botao btn-excluir"
+							data-id="<?php echo (int) $usuario["id"]; ?>"
+							data-nome="<?php echo htmlspecialchars($usuario["nome"]); ?>"
+							data-email="<?php echo htmlspecialchars($usuario["email"]); ?>">Excluir</button>
+					</td>
 				</tr>
 				<?php } ?>
 			</table>
 		<?php } ?>
+
+		<!-- Pergunta de confirmação (começa escondida) -->
+		<div id="modal-excluir" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo" hidden>
+			<form method="post" action="usuario_excluir.php" class="modal-caixa">
+				<input type="hidden" name="csrf" value="<?php echo $_SESSION["csrf"]; ?>">
+				<input type="hidden" name="id" id="modal-id" value="">
+				<h2 id="modal-titulo">Deseja realmente excluir este usuário?</h2>
+				<p>Usuário: <strong id="modal-nome"></strong> (<span id="modal-email"></span>) - ID <span id="modal-id-texto"></span></p>
+				<button type="button" class="botao" id="modal-cancelar">Cancelar</button>
+				<input type="submit" value="Confirmar">
+			</form>
+		</div>
 	</main>
 
 	<footer>
@@ -101,5 +134,6 @@ $usuarios = $comando->fetchAll();
 	</footer>
 
 	<script src="js/script.js"></script>
+	<script src="js/usuarios.js"></script>
 </body>
 </html>
