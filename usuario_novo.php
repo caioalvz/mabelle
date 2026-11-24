@@ -84,10 +84,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        // Se não tem nenhum erro, os dados estão válidos
+        // Se não tem nenhum erro, grava no banco
         if (count($erros) == 0) {
-            // (o INSERT entra no Ponto 06)
-            $mensagem_ok = "Dados válidos.";
+            try {
+                // Os ? são "lugares vazios": os valores vão separados, então nunca viram comando SQL
+                $comando = $pdo->prepare("INSERT INTO usuarios (nome, email, setor_id, perfil_id) VALUES (?, ?, ?, ?)");
+                $comando->execute([$nome, $email, $setor_id, $perfil_id]);
+                $novo_id = $pdo->lastInsertId();
+
+                // Anota no diário (auditoria): sem senha e sem dados pessoais, só o id
+                $diario = $pdo->prepare("INSERT INTO auditoria_usuarios (usuario_alvo_id, acao, autor, resultado) VALUES (?, 'cadastro', 'sistema', 'sucesso')");
+                $diario->execute([$novo_id]);
+
+                // Guarda um aviso e volta para a lista (assim F5 não cadastra de novo)
+                $_SESSION["flash"] = "Usuário cadastrado com sucesso.";
+                header("Location: usuarios.php");
+                exit;
+            } catch (PDOException $erro) {
+                error_log("Erro ao cadastrar usuario: " . $erro->getMessage());   // detalhe só no log
+                $codigo = 0;
+                if (isset($erro->errorInfo[1])) {
+                    $codigo = $erro->errorInfo[1];
+                }
+                $resultado = "falha";
+                if ($codigo == 1062) {                       // 1062 = valor repetido (e-mail UNIQUE)
+                    $erros["email"] = "Este e-mail já está cadastrado.";
+                    $resultado = "email duplicado";
+                } elseif ($codigo == 1452) {                 // 1452 = chave estrangeira inválida
+                    $erros["setor_id"] = "Setor ou perfil inválido.";
+                    $resultado = "vinculo invalido";
+                } else {
+                    $mensagem_erro = "Não foi possível salvar agora. Tente novamente.";
+                }
+                // Anota a falha no diário (se o próprio diário falhar, segue sem avisar)
+                try {
+                    $diario = $pdo->prepare("INSERT INTO auditoria_usuarios (usuario_alvo_id, acao, autor, resultado) VALUES (NULL, 'cadastro', 'sistema', ?)");
+                    $diario->execute([$resultado]);
+                } catch (PDOException $erro2) {
+                }
+            }
         }
     }
 }
@@ -120,9 +155,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 		<?php if ($mensagem_erro != "") { ?>
 			<div class="aviso erro"><?php echo htmlspecialchars($mensagem_erro); ?></div>
-		<?php } ?>
-		<?php if (isset($mensagem_ok)) { ?>
-			<div class="aviso sucesso"><?php echo htmlspecialchars($mensagem_ok); ?></div>
 		<?php } ?>
 
 		<?php if (count($setores) == 0 || count($perfis) == 0) { ?>
