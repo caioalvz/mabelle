@@ -269,3 +269,29 @@ footer {
 .github-link {
 	color:#c9ac82
 }
+/* Módulo de usuários (Sprint 01) */
+select {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+.erro-campo {
+	display: block;
+	color: #a33;
+	font-size: 13px;
+	margin: -10px 0 12px;
+}
+
+.aviso {
+	max-width: 900px;
+	padding: 10px 15px;
+	margin: 0 auto 15px;
+	border: 1px solid #d8c3a5;
+	background-color: #fff;
+}
+
+.aviso.sucesso { border-color: #5a8a5a; }
+.aviso.erro { border-color: #a33; color: #a33; }
