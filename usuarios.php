@@ -1,4 +1,8 @@
 <?php
+/**
+ * Lista os usuários ativos, com busca por nome ou e-mail (?q=),
+ * e mostra a janela de confirmação de exclusão.
+ */
 session_start();
 include("php/conexao_pdo.php");
 

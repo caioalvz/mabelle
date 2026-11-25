@@ -4,32 +4,56 @@ Site para apresentação de produtos para consumidores em sua maioria predominan
 
 ---
 
+## ✨ Funcionalidades
+
+- Páginas Início, Produtos, Sobre e Contato
+- Cadastro, listagem, busca e exclusão lógica de usuários
+- Ainda incompletos: login, carrinho, envio do contato e dados do dashboard
+
 ## 🛠️ Tecnologias Utilizadas
 
-Este projeto foi desenvolvido utilizando as seguintes tecnologias e ferramentas:
-
 * **Front-end:** HTML5, CSS3, JavaScript
-* **Controle de Versão:** Git e GitHub
-* **Ambiente / Ferramentas:** XAMMP, MySQL
+* **Back-end:** PHP 8.1 ou superior
+* **Banco de dados:** MySQL 8 ou MariaDB 10.4+
+* **Ambiente / Ferramentas:** XAMPP, Git e GitHub
 
----
+## ▶️ Como rodar
+
+1. Ligue Apache e MySQL no XAMPP.
+2. Copie a pasta `mabelle` para `C:\xampp\htdocs`.
+3. Importe `database/database.sql` e depois `database/sprint01_usuarios.sql`.
+4. Acesse http://localhost/mabelle
+
+O script do módulo cria três usuários fictícios. O login ainda não confere senha.
+
+## 📚 Documentação
+
+- [Requisitos](docs/requisitos.md)
+- [Banco de dados](docs/banco-de-dados.md)
+- [Telas e fluxos](docs/telas-e-fluxos.md)
+- [Instalação](docs/instalacao.md)
+- [Manual do usuário](docs/manual-usuario.md)
+- [Histórico de versões](CHANGELOG.md)
 
 ## 📁 Organização de Pastas
 
-A estrutura de diretórios do projeto está organizada da seguinte forma:
-
 ```text
 mabelle/
-├── 📁 assets/             # Arquivos estáticos (imagens, ícones, fontes)
-│   ├── 📁 css/            # Folhas de estilo globais e componentizadas
-│   ├── 📁 js/             # Scripts e comportamentos JavaScript
-│   └── 📁 img/            # Imagens e mídias do projeto
-├── 📁 components/         # Componentes reutilizáveis (se aplicável)
-├── 📁 includes/           # Partes reutilizáveis de código (Header, Footer, etc.)
-├── 📄 index.php           # Página principal da aplicação
-├── 📄 .gitignore          # Arquivos e pastas ignorados pelo Git
-└── 📄 README.md           # Documentação do projeto
+├── css/          # Folha de estilo
+├── js/           # Scripts
+├── img/          # Imagens
+├── php/          # Conexão com o banco
+├── database/     # Scripts SQL
+├── tests/        # Testes automáticos
+├── docs/         # Documentação
+├── *.php         # Páginas do site
+├── CHANGELOG.md
+└── README.md
 ```
+
+## 👤 Autor
+
+Caio César dos Santos Alves. Curso Técnico em Desenvolvimento de Sistemas, ETE Porto Digital. Disciplina: Engenharia de Software.
 
 ---
 

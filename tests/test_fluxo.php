@@ -1,10 +1,20 @@
 <?php
+/**
+ * Testes automáticos T01 a T12 do módulo de usuários.
+ */
 // Testes T01 a T12 contra um MySQL/MariaDB de TESTE (banco mabelle_teste, criado e apagado aqui).
 // Requisitos: MySQL rodando em localhost com usuário root sem senha (padrão do XAMPP).
 // Uso: php tests/test_fluxo.php
 
 $ok = 0;
 $falhas = 0;
+/**
+ * Conta e mostra o resultado de uma verificação.
+ *
+ * @param string $nome     Descrição do teste.
+ * @param bool   $condicao Verdadeiro se passou.
+ * @return void
+ */
 function verificar($nome, $condicao)
 {
     global $ok, $falhas;
@@ -40,6 +50,14 @@ usleep(1500000);
 
 $cookie = "";
 // Faz uma requisição e devolve [status, corpo, redirecionamento]
+/**
+ * Faz uma requisição ao servidor de teste.
+ *
+ * @param string $metodo  GET ou POST.
+ * @param string $caminho Página chamada.
+ * @param array  $dados   Campos do formulário.
+ * @return array [status, corpo, redirecionamento]
+ */
 function chamar($metodo, $caminho, $dados = [])
 {
     global $porta, $cookie;
@@ -57,12 +75,25 @@ function chamar($metodo, $caminho, $dados = [])
     }
     return [$status, (string) $corpo, $destino];
 }
+/**
+ * Lê o token CSRF de uma página.
+ *
+ * @param string $caminho Página com formulário.
+ * @return string Token, ou vazio se não houver.
+ */
 function pegar_token($caminho)
 {
     $r = chamar("GET", $caminho);
     preg_match('/name="csrf" value="([a-f0-9]+)"/', $r[1], $m);
     return $m[1] ?? "";
 }
+/**
+ * Executa uma consulta de contagem.
+ *
+ * @param PDO    $db  Conexão.
+ * @param string $sql Consulta SELECT COUNT.
+ * @return int
+ */
 function contar($db, $sql) { return (int) $db->query($sql)->fetchColumn(); }
 
 $token = pegar_token("usuario_novo.php");

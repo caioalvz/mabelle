@@ -1,4 +1,7 @@
 <?php
+/**
+ * Modelo de configuração do banco (copiar para config.local.php).
+ */
 // Copie este arquivo para php/config.local.php e ajuste os valores.
 // O config.local.php NAO vai para o Git nem para o ZIP.
 $host = "localhost";

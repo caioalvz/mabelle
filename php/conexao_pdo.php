@@ -1,4 +1,8 @@
 <?php
+/**
+ * Cria a conexão PDO na variável $pdo.
+ * Se a conexão falhar, responde 503 sem mostrar detalhes.
+ */
 // Conexão com o MySQL usando PDO. As páginas fazem: include("php/conexao_pdo.php");
 // Depois disso, a variável $pdo já está pronta para usar.
 

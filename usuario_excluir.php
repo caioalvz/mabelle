@@ -1,4 +1,8 @@
 <?php
+/**
+ * Recebe csrf e id por POST, muda o status do usuário para 'Baixa'
+ * dentro de uma transação e redireciona para usuarios.php.
+ */
 // "Excluir" um usuário = marcar status 'Baixa' (exclusão lógica). A ficha continua no banco.
 session_start();
 

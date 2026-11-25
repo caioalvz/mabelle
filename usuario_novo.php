@@ -1,4 +1,8 @@
 <?php
+/**
+ * Mostra o formulário de cadastro. No POST, confere o token CSRF,
+ * valida os campos, grava o usuário e registra na auditoria.
+ */
 session_start();
 include("php/conexao_pdo.php");
 

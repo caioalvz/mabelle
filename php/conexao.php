@@ -1,4 +1,7 @@
 <?php
+/**
+ * Conexão antiga com mysqli, usada somente por teste.php.
+ */
 
 $servidor = "localhost";
 $usuario = "root";

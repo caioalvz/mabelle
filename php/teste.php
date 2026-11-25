@@ -1,4 +1,7 @@
 <?php
+/**
+ * Testa a conexão antiga listando as categorias.
+ */
 include("conexao.php");
 
 echo "Conectado com sucesso!<br><br>";

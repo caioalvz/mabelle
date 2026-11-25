@@ -1,4 +1,7 @@
 <?php
+/**
+ * Testa a conexão PDO e simula uma falha (?simular_falha=1).
+ */
 // Demonstração do Ponto 03.
 // Abra: php/teste_pdo.php               -> lê um dado real do banco
 //       php/teste_pdo.php?simular_falha=1 -> mostra uma falha tratada

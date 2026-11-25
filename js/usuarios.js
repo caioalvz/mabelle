@@ -2,7 +2,12 @@
 
 var formulario = document.getElementById("form-usuario");
 
-// Mostra (ou limpa) a mensagem de erro embaixo de um campo
+/**
+ * Mostra ou limpa a mensagem de erro de um campo.
+ *
+ * @param {HTMLElement} campo Campo do formulário.
+ * @param {string} texto Mensagem (vazia para limpar).
+ */
 function mostrarErro(campo, texto) {
 	var aviso = document.getElementById("erro-" + campo.name);
 	if (aviso == null) {
